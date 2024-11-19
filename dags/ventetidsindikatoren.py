@@ -8,6 +8,7 @@ with DAG('ventetidsindikatoren', start_date=days_ago(1), schedule="0 8 * * 1-5",
         dag=dag,
         name="ventetidsindikatoren",
         repo="navikt/poao-ventetid",
+        branch="master"
         script_path="python/test.py",
         #nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb",
         #requirements_path="requirements.txt",
