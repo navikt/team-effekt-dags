@@ -6,7 +6,7 @@ from dataverk_airflow import notebook_operator, python_operator
 with DAG('ventetidsindikatoren', start_date=days_ago(1), schedule="0 8 * * 1-5", catchup=False) as dag:
     nb_op = notebook_operator(
         dag=dag,
-        name="ventetidsindikatoren",
+        name="run_notebook",
         repo="navikt/poao-ventetid",
         branch="master",
         #script_path="python/test.py",
