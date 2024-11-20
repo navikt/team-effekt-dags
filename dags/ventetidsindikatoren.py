@@ -13,6 +13,7 @@ with DAG('ventetidsindikatoren', start_date=days_ago(1), schedule="0 8 * * 1-5",
         #script_path="python/test.py",
         nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb",
         requirements_path="requirements.txt",
+        allowlist=["dm08-scan.adeo.no:1521"]
         #slack_channel=Variable.get("SLACK_ALERT_CHANNEL"),
         use_uv_pip_install=True,
     )
