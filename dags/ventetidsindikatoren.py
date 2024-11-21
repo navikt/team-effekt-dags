@@ -34,4 +34,4 @@ with DAG('ventetidsindikatoren',
 
     # dependencies
                   
-    refresh_datagrunnlaget >> run_notebook
+    #refresh_datagrunnlaget >> run_notebook
