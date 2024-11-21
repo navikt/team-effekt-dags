@@ -31,4 +31,7 @@ with DAG('ventetidsindikatoren',
          slack_channel=Variable.get("SLACK_ALERT_CHANNEL"),
          use_uv_pip_install=True,
     )
+
+    # dependencies
+                  
     refresh_datagrunnlaget >> run_notebook
