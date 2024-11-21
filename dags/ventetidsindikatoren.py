@@ -27,7 +27,7 @@ with DAG('ventetidsindikatoren', start_date=days_ago(1), schedule="0 8 * * 1-5",
     )
     nb_op2 = notebook_operator(
         dag=dag,
-        name="run_notebook",
+        name="run_notebook2",
         repo="navikt/poao-ventetid",
         branch="master",
         #script_path="python/test.py",
