@@ -21,7 +21,7 @@ with DAG('ventetidsindikatoren',
     )
     nb_op = notebook_operator(
          dag=dag,
-         name="run_notebook2",
+         name="run_notebook",
          repo="navikt/poao-ventetid",
          branch="master",
          allowlist=["datamarkedsplassen.intern.dev.nav.no", "dm08-scan.adeo.no:1521"],
@@ -31,3 +31,4 @@ with DAG('ventetidsindikatoren',
          slack_channel=Variable.get("SLACK_ALERT_CHANNEL"),
          use_uv_pip_install=True,
     )
+    refresh_datagrunnlaget >> run_notebook
