@@ -2,21 +2,20 @@ from airflow import DAG
 from airflow.utils.dates import days_ago
 from dataverk_airflow import notebook_operator, python_operator
 from airflow.models import Variable
+import logging
+
+
+logging.basicConfig(
+    format='{"msg":"%(message)s", "time":"%(asctime)s", "level":"%(levelname)s"}',
+    force=True,
+    level=logging.getLevelName("INFO"),
+)
+
+logging.warning("Dette er cellen med nav_pal")
+logging.info(f"Dette er  med nav_pal")
 
 
 with DAG('ventetidsindikatoren', start_date=days_ago(1), schedule="0 8 * * 1-5", catchup=False) as dag:
-    nb_op = notebook_operator(
-        dag=dag,
-        name="run_notebook",
-        repo="navikt/poao-ventetid",
-        branch="master",
-        #script_path="python/test.py",
-        nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb",
-        requirements_path="requirements.txt",
-        allowlist=["datamarkedsplassen.intern.dev.nav.no", "dm08-scan.adeo.no:1521"],
-        #slack_channel=Variable.get("SLACK_ALERT_CHANNEL"),
-        use_uv_pip_install=True,
-    ),
     nb_op = notebook_operator(
         dag=dag,
         name="run_notebook",
