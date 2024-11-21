@@ -19,7 +19,7 @@ with DAG('ventetidsindikatoren',
         script_path="python/refresh_datagrunnlaget.py",
         slack_channel="#team-effekt-tech",
     )
-    nb_op2 = notebook_operator(
+    nb_op = notebook_operator(
         dag=dag,
         name="run_notebook2",
         repo="navikt/poao-ventetid",
