@@ -16,6 +16,7 @@ with DAG('ventetidsindikatoren',
          branch="master",
          allowlist=["dm08-scan.adeo.no:1521"],
          script_path="python/refresh_datagrunnlaget.py",
+         requirements_path="requirements.txt",
          retries=0,
          #slack_channel="#team-effekt-tech",
     )
