@@ -8,7 +8,6 @@ import logging
 with DAG('ventetidsindikatoren', 
          start_date=days_ago(1), 
          schedule="0 8 * * 1-5", 
-         retries=0,
          catchup=False) as dag:
     py_op = python_operator(
          dag=dag,
@@ -17,6 +16,7 @@ with DAG('ventetidsindikatoren',
          branch="master",
          allowlist=["datamarkedsplassen.intern.dev.nav.no", "dm08-scan.adeo.no:1521"],
          script_path="python/refresh_datagrunnlaget.py",
+         retries=0,
          slack_channel="#team-effekt-tech",
     )
     nb_op = notebook_operator(
@@ -27,6 +27,7 @@ with DAG('ventetidsindikatoren',
          allowlist=["datamarkedsplassen.intern.dev.nav.no", "dm08-scan.adeo.no:1521"],
          nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb",
          requirements_path="requirements.txt",
+         retries=0,
          slack_channel=Variable.get("SLACK_ALERT_CHANNEL"),
          use_uv_pip_install=True,
     )
