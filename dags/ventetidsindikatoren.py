@@ -11,8 +11,8 @@ logging.basicConfig(
     level=logging.getLevelName("INFO"),
 )
 
-logging.warning("Dette er cellen med nav_pal")
-logging.info(f"Dette er  med nav_pal")
+logging.warning("Dette er en warning fra DAGen")
+logging.info("Dette er info fra DAGen")
 
 
 with DAG('ventetidsindikatoren', start_date=days_ago(1), schedule="0 8 * * 1-5", catchup=False) as dag:
