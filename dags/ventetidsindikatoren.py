@@ -29,7 +29,7 @@ with DAG('ventetidsindikatoren',
          nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb2",
          requirements_path="requirements.txt",
          retries=0,
-         slack_channel=Variable.get("SLACK_ALERT_CHANNEL"),
+         slack_channel="#team-effekt-tech",
          use_uv_pip_install=True,
     )
 
