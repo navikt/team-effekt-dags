@@ -30,7 +30,7 @@ with DAG('test_dag',
     quarto_op = quarto_operator(
         dag=dag,
         name="quarto-op",
-        repo="navikt/nada-dags",
+        repo="navikt/poao-ventetid",
         quarto={
             "path": "notebooks/testing.ipynb",
             "env": "dev",
