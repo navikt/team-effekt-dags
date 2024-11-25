@@ -18,7 +18,7 @@ with DAG('ventetidsindikatoren',
          script_path="python/refresh_datagrunnlaget.py",
          requirements_path="requirements.txt",
          retries=0,
-         slack_channel="#team-effekt-tech",
+         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
          use_uv_pip_install=True,
     )
     nb_op = notebook_operator(
@@ -30,7 +30,7 @@ with DAG('ventetidsindikatoren',
          nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb",
          requirements_path="requirements.txt",
          retries=0,
-         slack_channel="#team-effekt-tech",
+         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
          use_uv_pip_install=True,
     )
 
