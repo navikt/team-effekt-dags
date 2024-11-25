@@ -1,7 +1,7 @@
 import os
 from airflow import DAG
 from airflow.utils.dates import days_ago
-from dataverk_airflow import notebook_operator, python_operator
+from dataverk_airflow import notebook_operator, python_operator, quarto_operator
 from airflow.models import Variable
 import logging
 
@@ -15,16 +15,31 @@ with DAG('test_dag',
          start_date=days_ago(1), 
          schedule="0 8 * * 1-5", 
          catchup=False) as dag:
-    py_op = python_operator(
-         dag=dag,
-         name="test_dag",
-         repo="navikt/poao-ventetid",
-         branch="master",
-         allowlist=["dm08-scan.adeo.no:1521"],
-         script_path= Variable.get('SCRIPT_PATH_TEST'),
-         #requirements_path="requirements.txt",
-         retries=0,
-         slack_channel="#team-effekt-tech",
-         use_uv_pip_install=True,
+    #py_op = python_operator(
+    #     dag=dag,
+    #     name="test_dag",
+    #     repo="navikt/poao-ventetid",
+    #     branch="master",
+    #     allowlist=["dm08-scan.adeo.no:1521"],
+    #     script_path= Variable.get('SCRIPT_PATH_TEST'),
+    #     #requirements_path="requirements.txt",
+    #     retries=0,
+    #     slack_channel="#team-effekt-tech",
+    #     use_uv_pip_install=True,
+    #),
+    quarto_op = quarto_operator(
+        dag=dag,
+        name="quarto-op",
+        repo="navikt/nada-dags",
+        quarto={
+            "path": "notebooks/testing.ipynb",
+            #"env": "dev",
+            #"id": "f6f86316-9301-4ac3-a43b-46d238520cda",
+            #"token": Variable.get("NADA_TOKEN_DEV"),
+        },
+        #requirements_path="notebooks/requirements.txt",
+        slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
     )
+
+
 
