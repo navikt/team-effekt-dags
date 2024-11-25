@@ -31,6 +31,7 @@ with DAG('test_dag',
         dag=dag,
         name="quarto-op",
         repo="navikt/poao-ventetid",
+        retries=0,
         quarto={
             "path": "notebooks/testing.ipynb",
             "env": "dev",
