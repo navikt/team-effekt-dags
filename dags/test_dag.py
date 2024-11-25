@@ -17,7 +17,7 @@ with DAG('test_dag',
          catchup=False) as dag:
     py_op = python_operator(
          dag=dag,
-         name="refresh_datagrunnlaget",
+         name="test_dag",
          repo="navikt/poao-ventetid",
          branch="master",
          allowlist=["dm08-scan.adeo.no:1521"],
