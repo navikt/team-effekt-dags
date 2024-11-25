@@ -19,6 +19,7 @@ with DAG('ventetidsindikatoren',
          requirements_path="requirements.txt",
          retries=0,
          slack_channel="#team-effekt-tech",
+         use_uv_pip_install=True,
     )
     nb_op = notebook_operator(
          dag=dag,
@@ -30,7 +31,7 @@ with DAG('ventetidsindikatoren',
          requirements_path="requirements.txt",
          retries=0,
          slack_channel="#team-effekt-tech",
-         #use_uv_pip_install=True,
+         use_uv_pip_install=True,
     )
 
     # dependencies
