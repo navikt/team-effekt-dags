@@ -1,3 +1,4 @@
+import os
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from dataverk_airflow import notebook_operator, python_operator
