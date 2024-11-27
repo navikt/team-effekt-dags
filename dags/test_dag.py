@@ -38,7 +38,7 @@ with DAG('test_dag',
             "id": "9f3e0ca2-fb56-4122-a8c5-453e45fb18f4",
             "token": Variable.get('NADA_TOKEN_DEV'),
         },
-        requirements_path="notebooks/requirements.txt",
+        requirements_path="requirements.txt",
         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
     )
 
