@@ -31,6 +31,8 @@ with DAG('test_dag',
         dag=dag,
         name="quarto-op",
         repo="navikt/poao-ventetid",
+        branch="master",
+        allowlist=["dm08-scan.adeo.no:1521"],
         retries=0,
         quarto={
             "path": "notebooks/ventetid_dwh_raw_data/ventetid_MVP.ipynb",
