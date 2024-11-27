@@ -21,6 +21,7 @@ with DAG('test_dag',
         dag=dag,
         name="MVP_datafortelling",
         repo="navikt/poao-ventetid",
+        python_version="3.10",
         quarto={
             "path": "notebooks/ventetid_dvh_raw_data/ventetid_MVP.ipynb",
             "env": "prod",
