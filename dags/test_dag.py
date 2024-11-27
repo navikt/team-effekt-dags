@@ -29,7 +29,7 @@ with DAG('test_dag',
     #),
     quarto_op = quarto_operator(
         dag=dag,
-        name="quarto-op",
+        name="MVP_datafortelling",
         repo="navikt/poao-ventetid",
         branch="master",
         allowlist=["dm08-scan.adeo.no:1521"],
@@ -42,7 +42,8 @@ with DAG('test_dag',
         },
         requirements_path="requirements.txt",
         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
+        use_uv_pip_install=True,
     )
 
-
+quarto_op
 
