@@ -7,9 +7,9 @@ import logging
 from kubernetes import client
 
 
-dmp_host = Variable.get('MARKEDSPLASSEN_HOST_DEV', default_var=None)
-if dmp_host:
-    os.environ["MARKEDSPLASSEN_HOST"] = dmp_host
+#dmp_host = Variable.get('MARKEDSPLASSEN_HOST_DEV', default_var=None)
+#if dmp_host:
+#    os.environ["MARKEDSPLASSEN_HOST"] = dmp_host
 
 
 with DAG('test_dag', 
