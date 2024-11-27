@@ -5,10 +5,10 @@ from dataverk_airflow import notebook_operator, python_operator, quarto_operator
 from airflow.models import Variable
 import logging
 
-dmp_host = Variable.get('MARKEDSPLASSEN_HOST_DEV', default_var=None)
 
+dmp_host = Variable.get('MARKEDSPLASSEN_HOST_DEV', default_var=None)
 if dmp_host:
-    os.environ["MARKEDSPLASSEN_HOST_DEV"] = dmp_host
+    os.environ["MARKEDSPLASSEN_HOST"] = dmp_host
 
 
 with DAG('test_dag', 
@@ -33,10 +33,10 @@ with DAG('test_dag',
         repo="navikt/poao-ventetid",
         retries=0,
         quarto={
-            "path": "notebooks/testing.ipynb",
+            "path": "notebooks/ventetid_dwh_raw_data/ventetid_MVP.ipynb",
             "env": "dev",
-            "id": "test",
-            "token": "test",
+            "id": "9f3e0ca2-fb56-4122-a8c5-453e45fb18f4",
+            "token": Variable.get('NADA_TOKEN_DEV'),
         },
         #requirements_path="notebooks/requirements.txt",
         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
