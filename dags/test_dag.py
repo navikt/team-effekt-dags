@@ -22,7 +22,7 @@ with DAG('test_dag',
         name="MVP_datafortelling",
         repo="navikt/poao-ventetid",
         quarto={
-            "path": "notebooks/ventetid_dwh_raw_data/ventetid_MVP.ipynb",
+            "path": "notebooks/ventetid_dvh_raw_data/ventetid_MVP.ipynb",
             "env": "dev",
             "id": "9f3e0ca2-fb56-4122-a8c5-453e45fb18f4",
             "token": Variable.get('NADA_TOKEN_DEV'),
