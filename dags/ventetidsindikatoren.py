@@ -21,19 +21,7 @@ with DAG('ventetidsindikatoren',
          slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
          use_uv_pip_install=True,
     )
-    nb_op = notebook_operator(
-         dag=dag,
-         name="run_notebook",
-         repo="navikt/poao-ventetid",
-         branch="master",
-         allowlist=["dm08-scan.adeo.no:1521"],
-         nb_path="notebooks/ventetid_dvh_raw_data/fetch_raw_dvh_sky.ipynb",
-         requirements_path="requirements.txt",
-         retries=0,
-         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
-         use_uv_pip_install=True,
-    )
 
     # dependencies
                   
-    py_op >> nb_op
+    # py_op >> nb_op
