@@ -1,9 +1,10 @@
+import os
 from airflow import DAG
 from airflow.utils.dates import days_ago
 from dataverk_airflow import notebook_operator, python_operator, quarto_operator
 from airflow.models import Variable
 import logging
-
+from kubernetes import client
 
 with DAG('ventetidsindikatoren', 
          start_date=days_ago(1), 
