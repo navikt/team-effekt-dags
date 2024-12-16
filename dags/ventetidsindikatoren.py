@@ -22,7 +22,6 @@ with DAG('ventetidsindikatoren',
                   slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
                   use_uv_pip_install=True,
                   )
-                  )
                   
          quarto_op1 = quarto_operator(
                   dag=dag,
@@ -43,7 +42,8 @@ with DAG('ventetidsindikatoren',
                   resources=client.V1ResourceRequirements(
                   requests={"memory": "10G", "cpu": "1500m"},
                   limits={"memory": "15G", "cpu": "2000m"},
-                  ),
+                  )
+         ),
 
                   
          quarto_op2 = quarto_operator(
