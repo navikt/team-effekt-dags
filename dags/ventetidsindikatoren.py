@@ -41,8 +41,7 @@ with DAG('ventetidsindikatoren',
         retries=0,
         resources=client.V1ResourceRequirements(
             requests={"memory": "10G", "cpu": "1500m"},
-            limits={"memory": "15G", "cpu": "2000m"},
-        ),
+            limits={"memory": "15G", "cpu": "2000m"}),
         startup_timeout_seconds=600
     ),    
     quarto_op2 = quarto_operator(
@@ -64,9 +63,7 @@ with DAG('ventetidsindikatoren',
         retries=0,
         resources=client.V1ResourceRequirements(
             requests={"memory": "10G", "cpu": "1500m"},
-            limits={"memory": "15G", "cpu": "2000m"},
-        ),
-        startup_timeout_seconds=600,
+            limits={"memory": "15G", "cpu": "2000m"})
         )
     )                  
 
