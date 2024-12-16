@@ -46,7 +46,7 @@ with DAG('ventetidsindikatoren',
     ),    
     quarto_op2 = quarto_operator(
         dag=dag,
-        name="Tidsmålinger - datakvalitet",
+        name="tidsmålinger_datakvalitet",
         repo="navikt/poao-ventetid",
         python_version="3.10",
         quarto={
