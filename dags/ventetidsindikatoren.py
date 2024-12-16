@@ -48,13 +48,13 @@ with DAG('ventetidsindikatoren',
                   
          quarto_op2 = quarto_operator(
                   dag=dag,
-                  name="MVP_datafortelling",
+                  name="avstemming_datakvalitet",
                   repo="navikt/poao-ventetid",
                   python_version="3.10",
                   quarto={
-                  "path": "notebooks/ventetid_dvh_raw_data/ventetid_MVP.ipynb",
+                  "path": "notebooks/ventetid_dvh_raw_data/avstemming_detaljer.ipynb",
                   "env": "prod",
-                  "id": "1c513c0b-bf77-4599-97d1-74be17a4a9b3",
+                  "id": "ba355260-8bb1-446f-96c3-3e76eb85e60a",
                   "token": Variable.get('NADA_TOKEN'),},
                   branch="master",
                   requirements_path="requirements.txt",
