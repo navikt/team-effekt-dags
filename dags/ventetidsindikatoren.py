@@ -21,7 +21,8 @@ with DAG('ventetidsindikatoren',
                   retries=0,
                   slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
                   use_uv_pip_install=True,
-                  ),
+                  )
+                  )
                   
          quarto_op1 = quarto_operator(
                   dag=dag,
