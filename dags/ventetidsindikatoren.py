@@ -72,4 +72,4 @@ with DAG('ventetidsindikatoren',
 
 # dependencies
 
-py_op >> quarto_op1
+py_op >> quarto_op1 >> quarto_op2
