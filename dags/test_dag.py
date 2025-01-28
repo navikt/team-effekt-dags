@@ -14,7 +14,7 @@ if dmp_host:
     os.environ["MARKEDSPLASSEN_HOST"] = dmp_host
 
 
-with DAG('DataverkAirflowQuartoBook', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
+with DAG('test_dag', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
     quarto_op = quarto_operator(
         dag=dag,
         name="Tester_quartobook_website",
