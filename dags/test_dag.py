@@ -5,7 +5,7 @@ from airflow import DAG
 from airflow.models import Variable
 from airflow.utils.dates import days_ago
 from dataverk_airflow import quarto_operator
-#from kubernetes import client
+from kubernetes import client
 #import logging
 
 
