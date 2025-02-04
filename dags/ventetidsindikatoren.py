@@ -29,7 +29,7 @@ with DAG('ventetidsindikatoren',
                   repo="navikt/poao-ventetid",
                   python_version="3.10",
                   quarto={
-                  "path": "notebooks/ventetid_dvh_raw_data/ventetid_MVP.ipynb",
+                  "path": "notebooks/ventetid_dvh_raw_data/quarto",
                   "env": "prod",
                   "id": "1c513c0b-bf77-4599-97d1-74be17a4a9b3",
                   "token": Variable.get('NADA_TOKEN'),},
