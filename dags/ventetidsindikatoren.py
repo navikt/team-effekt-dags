@@ -31,7 +31,7 @@ with DAG('ventetidsindikatoren',
                   quarto={
                   "path": "notebooks/ventetid_dvh_raw_data/quarto",
                   "env": "prod",
-                  "id": "1c513c0b-bf77-4599-97d1-74be17a4a9b3",
+                  "id": "3dbd1ea9-301f-4d84-989d-8d337de9957e",
                   "token": Variable.get('NADA_TOKEN'),},
                   branch="master",
                   requirements_path="requirements.txt",
