@@ -30,7 +30,7 @@ with DAG('test_dag', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=Fa
         requirements_path="requirements.txt",
         #slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
         use_uv_pip_install=True,
-        allowlist=["dm08-scan.adeo.no:1521"],
+        allowlist=["dmv09-scan.adeo.no:1521"],
         retries=0,
         resources=client.V1ResourceRequirements(
             requests={"memory": "10G", "cpu": "1500m"},
