@@ -10,7 +10,7 @@ from kubernetes import client
 
 
 
-with DAG('analyser_P4_dev', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
+with DAG('analyser_P4_dev', start_date=days_ago(1), schedule="15 9 * * 1-5", catchup=False) as dag:
     quarto_op = quarto_operator(
         dag=dag,
         name="Analyser_Ventetid_P4",
