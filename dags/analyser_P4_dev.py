@@ -19,7 +19,7 @@ with DAG('analyser_P4_dev', start_date=days_ago(1), schedule="15 9 * * 1-5", cat
         quarto={
             "folder": "notebooks/ventetid_dvh_raw_data/analyse_manuscript",
             "env": "dev",
-            "id": "6059ac0d-4ceb-46ed-b4de-b7956eb53dcc",
+            "id": "871b1027-4dc1-4fd7-9c90-c34281b34c69",
             "token": Variable.get("NADA_TOKEN_DEV"),
         },
         branch="master",
