@@ -18,7 +18,7 @@ with DAG('test_dag', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=Fa
         repo="navikt/poao-ventetid",
         python_version="3.10",
         quarto={
-            "folder": "notebooks/ventetid_dvh_raw_data/analyse_book",
+            "folder": "notebooks/ventetid_dvh_raw_data/analyse_manuscript_new",
             "env": "dev",
             "id": "e8f113b7-ecad-41a6-b3dd-6fd00d0e1339",
             "token": Variable.get("NADA_TOKEN_DEV"),
