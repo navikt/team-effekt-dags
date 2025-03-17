@@ -9,29 +9,26 @@ from kubernetes import client
 #import logging
 
 
-#dmp_host = Variable.get('MARKEDSPLASSEN_HOST_DEV', default_var=None)
-#if dmp_host:
-#    os.environ["MARKEDSPLASSEN_HOST"] = dmp_host
 
 
-with DAG('test_dag', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
+with DAG('analyser_P4_dev', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
     quarto_op = quarto_operator(
         dag=dag,
-        name="Tester_quartobook_website",
+        name="Analyser_Ventetid_P4",
         repo="navikt/poao-ventetid",
         python_version="3.10",
         quarto={
-            "folder": "notebooks/ventetid_dvh_raw_data/quarto",
+            "folder": "notebooks/ventetid_dvh_raw_data/analyse_book",
             "env": "dev",
-            "id": "6059ac0d-4ceb-46ed-b4de-b7956eb53dcc",
+            "id": "e8f113b7-ecad-41a6-b3dd-6fd00d0e1339",
             "token": Variable.get("NADA_TOKEN_DEV"),
         },
         branch="master",
         requirements_path="requirements.txt",
         #slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
         use_uv_pip_install=True,
-        allowlist=["dmv09-scan.adeo.no:1521", "datamarkedsplassen.intern.dev.nav.no"],
-        retries=0,
+        allowlist=["dmv09-scan.adeo.no:1521", "datamarkedsplassen.intern.dev.nav.no:443"],
+        #retries=0,
         resources=client.V1ResourceRequirements(
             requests={"memory": "10G", "cpu": "1500m"},
             limits={"memory": "15G", "cpu": "2000m"},
@@ -40,35 +37,5 @@ with DAG('test_dag', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=Fa
         
     )
 
-
-
-# with DAG('test_dag', 
-#          start_date=days_ago(1), 
-#          schedule="0 8 * * 1-5", 
-#          catchup=False) as dag:
-             
-#     quarto_op = quarto_operator(
-#         dag=dag,
-#         name="MVP_datafortelling",
-#         repo="navikt/poao-ventetid",
-#         python_version="3.10",
-#         quarto={
-#             "path": "notebooks/ventetid_dvh_raw_data/ventetid_MVP.ipynb",
-#             "env": "prod",
-#             "id": "1c513c0b-bf77-4599-97d1-74be17a4a9b3",
-#             "token": Variable.get('NADA_TOKEN'),
-#         },
-#         branch="master",
-#         requirements_path="requirements.txt",
-#         slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
-#         use_uv_pip_install=True,
-#         allowlist=["dm08-scan.adeo.no:1521"],
-#         retries=0,
-#         resources=client.V1ResourceRequirements(
-#             requests={"memory": "10G", "cpu": "1500m"},
-#             limits={"memory": "15G", "cpu": "2000m"},
-#         ),
-#         startup_timeout_seconds=600,
-#     )
 
 quarto_op
