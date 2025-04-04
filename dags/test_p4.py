@@ -14,7 +14,7 @@ from kubernetes import client
 with DAG('test_dag_p4', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
     quarto_op = quarto_operator(
         dag=dag,
-        name="Tester_ny versjon av tidsindikatoren",
+        name="Tester_ny_versjon_av_tidsindikatoren",
         repo="navikt/poao-ventetid",
         python_version="3.10",
         quarto={
