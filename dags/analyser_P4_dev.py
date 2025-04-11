@@ -29,8 +29,8 @@ with DAG('analyser_P4_dev', start_date=days_ago(1), schedule="15 8 * * 1-5", cat
         allowlist=["dmv09-scan.adeo.no:1521", "datamarkedsplassen.intern.dev.nav.no:443"],
         #retries=0,
         resources=client.V1ResourceRequirements(
-            requests={"memory": "10G", "cpu": "1500m"},
-            limits={"memory": "15G", "cpu": "2000m"},
+            requests={"memory": "20G", "cpu": "3000m"},
+            limits={"memory": "40G", "cpu": "5000m"},
         ),
         startup_timeout_seconds=600,
         
