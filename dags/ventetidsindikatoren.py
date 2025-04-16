@@ -25,7 +25,7 @@ with DAG('ventetidsindikatoren',
                   
          quarto_op1 = quarto_operator(
                   dag=dag,
-                  name="MVP_datafortelling",
+                  name="quarto_datafortelling",
                   repo="navikt/poao-ventetid",
                   python_version="3.10",
                   quarto={
