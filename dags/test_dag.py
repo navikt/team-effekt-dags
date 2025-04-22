@@ -14,13 +14,13 @@ from kubernetes import client
 with DAG('test_dag', start_date=days_ago(1), schedule="15 8 * * 1-5", catchup=False) as dag:
     quarto_op = quarto_operator(
         dag=dag,
-        name="Tester_quarto_book_for_analysen",
+        name="Tester_analysen_uten_appendix",
         repo="navikt/poao-ventetid",
         python_version="3.10",
         quarto={
-            "folder": "notebooks/ventetid_dvh_raw_data/analyse_manuscript_new",
+            "folder": "notebooks/ventetid_dvh_raw_data/analyse_manuscript",
             "env": "dev",
-            "id": "e8f113b7-ecad-41a6-b3dd-6fd00d0e1339",
+            "id": "dcd6746c-6f14-47fc-b496-dc6c4ef54ba7",
             "token": Variable.get("NADA_TOKEN_DEV"),
         },
         branch="master",
