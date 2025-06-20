@@ -8,7 +8,7 @@ from kubernetes import client
 
 with DAG('ventetidsindikatoren', 
          start_date=days_ago(1), 
-         schedule="0 7 * * 1-5", 
+         schedule="0 7 8,9,10 * *", 
          catchup=False) as dag:
          py_op = python_operator(
                   dag=dag,
