@@ -45,28 +45,6 @@ with DAG('ventetidsindikatoren',
                   )
          ),
 
-                  
-         quarto_op2 = quarto_operator(
-                  dag=dag,
-                  name="avstemming_datakvalitet",
-                  repo="navikt/poao-ventetid",
-                  python_version="3.10",
-                  quarto={
-                  "path": "notebooks/ventetid_dvh_raw_data/avstemming_detaljer.ipynb",
-                  "env": "prod",
-                  "id": "ba355260-8bb1-446f-96c3-3e76eb85e60a",
-                  "token": Variable.get('NADA_TOKEN'),},
-                  branch="master",
-                  requirements_path="requirements.txt",
-                  slack_channel= Variable.get('SLACK_ALERT_CHANNEL'),
-                  use_uv_pip_install=True,
-                  allowlist=["dmv03-scan.adeo.no:1521"],
-                  retries=0,
-                  resources=client.V1ResourceRequirements(
-                  requests={"memory": "10G", "cpu": "1500m"},
-                  limits={"memory": "15G", "cpu": "2000m"},
-                  ),
-                  
          startup_timeout_seconds=600,
 )
 
