@@ -43,10 +43,7 @@ with DAG('ventetidsindikatoren',
                   requests={"memory": "10G", "cpu": "1500m"},
                   limits={"memory": "15G", "cpu": "2000m"},
                   )
-         ),
-
-         startup_timeout_seconds=600,
-)
+         )
 
 # dependencies
 
